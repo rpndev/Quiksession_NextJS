@@ -3,7 +3,7 @@ node_modules
 config/dev.js
 selfsigned.crt
 selfsigned.key
-.next
+client/.next
 .env
 .vscode
 combined.log

@@ -233,7 +233,12 @@ export default function StudiosMap() {
                 />
               </ListItem>
               <Box display="flex" justifyContent="flex-end" m={1} p={1}>
-                <Link to={`/bookings/${studio.id}`}>
+                <Link
+                  href={{
+                    pathname: "/Booking",
+                    query: { studioId: studio.id },
+                  }}
+                >
                   <Button variant="contained" color="secondary">
                     Book
                   </Button>
