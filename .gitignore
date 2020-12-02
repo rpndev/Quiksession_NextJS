@@ -3,7 +3,6 @@ node_modules
 config/dev.js
 selfsigned.crt
 selfsigned.key
-client/.next
 .env
 .vscode
 combined.log
@@ -17,6 +16,7 @@ package-lock.json
 
 # dependencies
 node_modules/
+client/.next
 .pnp/
 .pnp.js
 
