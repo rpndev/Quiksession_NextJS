@@ -173,23 +173,6 @@ function StudioForm({
             <input type="file" onChange={onChange} />
           </Grid>
           <Grid item xs={12} md={6}>
-            {/* <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="address"
-              label="Address"
-              name="address"
-              autoComplete="off"
-              autoFocus
-              value={address}
-              onChange={(e) => {
-                setAddress(e.target.value);
-                setAddressError(null);
-              }}
-              error={!!addressError}
-            /> */}
             <GeoCoderInput
               hasError={!!addressError}
               address={address ? address : null}

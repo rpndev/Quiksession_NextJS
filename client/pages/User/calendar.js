@@ -1,6 +1,7 @@
 import "./calendar.css";
 import React, { useEffect, useState } from "react";
 import { STUDIOS_URL, BOOK_URL } from "../../constants/urls";
+
 import {
   createBook,
   deleteBook,
@@ -23,8 +24,9 @@ import {
 
 import { extend } from "@syncfusion/ej2-base";
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
-
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
+
+import SideLayout from "../../components/SideLayout";
 import ChargeForm from "../../components/ChargeForm";
 /**
  * schedule timeline resource grouping sample
@@ -327,78 +329,80 @@ export default function TimelineGrouping(props) {
     });
   }
   return (
-    <div className="schedule-control-section">
-      <div className="col-lg-12 control-section">
-        <div className="control-wrapper">
-          <ScheduleComponent
-            id="schedule"
-            cssClass="timeline-resource-grouping"
-            width="100%"
-            height="650px"
-            selectedDate={new Date()}
-            currentView="TimelineWeek"
-            eventSettings={{
-              dataSource: bookData,
-              fields: {
-                subject: {
-                  title: "Event Name",
-                  name: "Subject",
-                  default: "Not Available",
+    <SideLayout>
+      <div className="schedule-control-section">
+        <div className="col-lg-12 control-section">
+          <div className="control-wrapper">
+            <ScheduleComponent
+              id="schedule"
+              cssClass="timeline-resource-grouping"
+              width="100%"
+              height="650px"
+              selectedDate={new Date()}
+              currentView="TimelineWeek"
+              eventSettings={{
+                dataSource: bookData,
+                fields: {
+                  subject: {
+                    title: "Event Name",
+                    name: "Subject",
+                    default: "Not Available",
+                  },
                 },
-              },
-            }}
-            group={{ resources: ["Projects", "Categories"] }}
-            actionBegin={(e) => onActionBegin(e)}
-            editorTemplate={editorTemplate}
-            rowAutoHeight={true}
-            popupOpen={(e) => onPopupOpen(e)}
-            cssClass="schedule-cell-dimension"
-            timeScale={{ enable: true, interval: 60, slotCount: 1 }}
-          >
-            <ResourcesDirective>
-              <ResourceDirective
-                field="ProjectId"
-                title="Choose Project"
-                name="Projects"
-                allowMultiple={false}
-                dataSource={projectData}
-                textField="text"
-                idField="id"
-                allowGroupEdit={false}
-                colorField="color"
-              ></ResourceDirective>
-              <ResourceDirective
-                field="TaskId"
-                title="Category"
-                name="Categories"
-                allowMultiple={true}
-                dataSource={categoryData}
-                textField="text"
-                idField="id"
-                groupIDField="groupId"
-                colorField="color"
-              ></ResourceDirective>
-            </ResourcesDirective>
-            <ViewsDirective>
-              <ViewDirective option="TimelineDay" />
-              <ViewDirective option="TimelineWeek" />
-              <ViewDirective option="TimelineWorkWeek" />
-              <ViewDirective option="TimelineMonth" />
-              <ViewDirective option="Agenda" />
-            </ViewsDirective>
-            <Inject
-              services={[
-                TimelineViews,
-                TimelineMonth,
-                Agenda,
-                Resize,
-                DragAndDrop,
-              ]}
-            />
-          </ScheduleComponent>
+              }}
+              group={{ resources: ["Projects", "Categories"] }}
+              actionBegin={(e) => onActionBegin(e)}
+              editorTemplate={editorTemplate}
+              rowAutoHeight={true}
+              popupOpen={(e) => onPopupOpen(e)}
+              cssClass="schedule-cell-dimension"
+              timeScale={{ enable: true, interval: 60, slotCount: 1 }}
+            >
+              <ResourcesDirective>
+                <ResourceDirective
+                  field="ProjectId"
+                  title="Choose Project"
+                  name="Projects"
+                  allowMultiple={false}
+                  dataSource={projectData}
+                  textField="text"
+                  idField="id"
+                  allowGroupEdit={false}
+                  colorField="color"
+                ></ResourceDirective>
+                <ResourceDirective
+                  field="TaskId"
+                  title="Category"
+                  name="Categories"
+                  allowMultiple={true}
+                  dataSource={categoryData}
+                  textField="text"
+                  idField="id"
+                  groupIDField="groupId"
+                  colorField="color"
+                ></ResourceDirective>
+              </ResourcesDirective>
+              <ViewsDirective>
+                <ViewDirective option="TimelineDay" />
+                <ViewDirective option="TimelineWeek" />
+                <ViewDirective option="TimelineWorkWeek" />
+                <ViewDirective option="TimelineMonth" />
+                <ViewDirective option="Agenda" />
+              </ViewsDirective>
+              <Inject
+                services={[
+                  TimelineViews,
+                  TimelineMonth,
+                  Agenda,
+                  Resize,
+                  DragAndDrop,
+                ]}
+              />
+            </ScheduleComponent>
+          </div>
+          <div className="mb-5 pb-5"></div>
         </div>
-        <div className="mb-5 pb-5"></div>
       </div>
-    </div>
+    </SideLayout>
   );
 }
