@@ -20,7 +20,7 @@ function Payments() {
         // this.props.handleToken(token);
         // console.log(token);
       }}
-      stripeKey={process.env.REACT_APP_STRIPE_KEY}
+      stripeKey={process.env.STRIPE_KEY}
     >
       <button style={{ backgroundColor: "#0071bc" }} className="btn">
         Add Credits

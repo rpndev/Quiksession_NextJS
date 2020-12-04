@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -38,7 +37,6 @@ function StudioForm({
   submitButtonText = "Next",
   handleSubmit,
   preValue,
-  history,
 }) {
   const classes = useStyles();
   const [name, setName] = useState(preValue ? preValue.name : "");
@@ -101,10 +99,6 @@ function StudioForm({
   const onChange = (e) => {
     setPhoto(e.target.files[0]);
   };
-  // const cancel = (e) => {
-  //   e.preventDefault();
-  //   history.push("/studios");
-  // };
 
   return (
     <div className={classes.paper}>
@@ -204,4 +198,4 @@ function StudioForm({
   );
 }
 
-export default withRouter(StudioForm);
+export default StudioForm;

@@ -40,12 +40,8 @@ export default function Sidebar(props) {
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),
         });
         return (
-          <Link href={prop.layout + prop.path}>
-            <div
-              className={activePro + classes.item}
-              activeClassName="active"
-              key={key}
-            >
+          <Link href={prop.layout + prop.path} key={key}>
+            <div className={activePro + classes.item} activeClassName="active">
               <ListItem button className={classes.itemLink + listItemClasses}>
                 {typeof prop.icon === "string" ? (
                   <Icon

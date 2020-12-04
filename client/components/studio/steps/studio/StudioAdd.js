@@ -26,6 +26,7 @@ export default function StudioAdd({ goForward }) {
   const { state, dispatch } = useStudioFormState();
   const [roomType, setRoomType] = React.useState("music");
   const submitForm = async (formData) => {
+    console.log("formData", formData);
     formData = { ...formData, roomType: roomType };
     try {
       await dispatch({ type: "ADD_STUDIO", payload: formData });

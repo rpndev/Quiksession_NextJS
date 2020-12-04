@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import throttle from "lodash/throttle";
 
-Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAP_API_KEY);
+Geocode.setApiKey(process.env.GOOGLE_MAP_API_KEY);
 Geocode.setLanguage("en");
 Geocode.enableDebug();
 
@@ -207,5 +207,5 @@ function GeoCoderInput({
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+  apiKey: process.env.GOOGLE_MAP_API_KEY,
 })(GeoCoderInput);

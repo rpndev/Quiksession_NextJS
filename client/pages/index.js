@@ -11,7 +11,7 @@ const Landing = () => {
       window.OneSignal = window.OneSignal || [];
       window.OneSignal.push(function () {
         window.OneSignal.init({
-          appId: process.env.REACT_APP_NOTIFICATION_ID,
+          appId: process.env.NOTIFICATION_ID,
         });
         var isPushSupported = window.OneSignal.isPushNotificationsSupported();
         if (isPushSupported) {
