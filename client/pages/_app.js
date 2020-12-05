@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { Provider } from "../context";
-import CheckoutModal from "../components/CheckoutModal.js";
 import Layout from "../components/Layout.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
@@ -16,13 +15,11 @@ function MyApp(props) {
   };
 
   const { Component, pageProps } = props;
-  const [isOpen, setOpen] = useState(false);
 
   const Root = () => {
     return (
       <Layout>
         <Component {...pageProps} />
-        <CheckoutModal isOpen={isOpen} onClose={() => setOpen(false)} />
       </Layout>
     );
   };

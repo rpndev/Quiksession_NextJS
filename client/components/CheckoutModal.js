@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 // import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -26,7 +26,6 @@ import { Context } from "../context";
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
 const stripePromise = loadStripe(process.env.STRIPE_KEY);
-
 const initialState = { email: "", amount: 50 };
 
 function CheckoutForm(props) {
@@ -161,12 +160,16 @@ function CheckoutForm(props) {
 
 function CheckoutModal(props) {
   const { isOpen, onClose } = props;
-  // const authStr = localStorage.getItem("auth");
-  // const authInstance = JSON.parse(authStr);
-  var email = "";
-  // if (authInstance) {
-  //   email = authInstance.user.email;
-  // }
+  const [email, setEmail] = useState("");
+  useEffect(() => {
+    const authStr = localStorage.getItem("auth");
+    const authInstance = JSON.parse(authStr);
+    var email = "";
+    if (authInstance) {
+      email = authInstance.user.email;
+    }
+    setEmail(email);
+  }, []);
   return (
     <Elements stripe={stripePromise}>
       <CheckoutForm open={isOpen} onClose={onClose} email={email} />
