@@ -15,4 +15,9 @@ module.exports = withCSS({
     });
     return config;
   },
+  env: {
+    STRIPE_KEY: process.env.STRIPE_KEY,
+    GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY,
+    NOTIFICATION_ID: process.env.NOTIFICATION_ID,
+  },
 });
