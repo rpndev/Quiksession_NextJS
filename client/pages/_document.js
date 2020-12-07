@@ -18,6 +18,10 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           ></link>
+          <link
+            href="https://cdn.syncfusion.com/ej2/material.css"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <Main />

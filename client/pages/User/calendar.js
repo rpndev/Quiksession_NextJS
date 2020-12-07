@@ -1,4 +1,4 @@
-import "./calendar.css";
+import "./calendar.module.css";
 import React, { useEffect, useState } from "react";
 import { STUDIOS_URL, BOOK_URL } from "../../constants/urls";
 

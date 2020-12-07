@@ -2,6 +2,7 @@ import React from "react";
 // import Calendar from "react-calendar";
 import Calendar from "react-calendar/dist/entry.nostyle";
 import "./Booking.module.css";
+import "react-calendar/dist/Calendar.css";
 
 export default function DateTime(props) {
   const selectedTime = (i) => {
@@ -14,7 +15,7 @@ export default function DateTime(props) {
   };
 
   return (
-    <div className="">
+    <>
       <div className="pb-3">
         <Calendar
           onChange={props.onChange}
@@ -71,6 +72,6 @@ export default function DateTime(props) {
           </button>
         </div>
       </div>
-    </div>
+    </>
   );
 }

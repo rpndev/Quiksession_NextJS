@@ -111,7 +111,7 @@ export default function Header(props) {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Link href={isAuthenticated ? "/User" : "/"}>
+        <Link href={isAuthenticated ? "/User/studios" : "/"}>
           <a style={{ flexGrow: 1 }}>
             <img
               src={quiksessionLogo}
